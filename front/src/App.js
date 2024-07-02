@@ -1,4 +1,4 @@
-import Routes from './pages/home/routes';
+import Routes from './pages/dashboard/routes';
 
 function App() {
   return (

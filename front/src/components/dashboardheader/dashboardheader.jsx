@@ -15,15 +15,15 @@ import Fingerprint from '@mui/icons-material/Fingerprint';
 
 import { FiMenu } from 'react-icons/fi';
 
-import { MainMenuItems } from './mainmenuitems';
+import { DashboardHeaderMenu } from './dashboardheadermenu';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import './header.css'
+import './dashboardheader.css'
 
 
 
-const Header = () => {
+const DashboardHeader = () => {
 
     return (
             <>
@@ -40,7 +40,7 @@ const Header = () => {
                       <Nav className="nav-div justify-content-start flex-grow-1 pe-3 align-center">
 
                         {
-                          MainMenuItems.map((item,index) => {
+                          DashboardHeaderMenu.map((item,index) => {
                             if(item.haveChilds) {
                               return(
                                 <NavDropdown key={index} title={item.title} id={`offcanvasNavbarDropdown-expand-${expand}`}>
@@ -64,9 +64,9 @@ const Header = () => {
                       </Nav>
 
                       <div className='btn-div'>
-                        {/* <a href='/sign-in' className='btn-si'>Sing In</a>
-                        <a href='/sign-up' className='btn-su'>Sing Up</a> */}
-                        <Tippy content="Profile" delay={200} duration={500} theme='material' placement='bottom'>
+                        <a href='/sign-in' className='btn-si'>Sing In</a>
+                        <a href='/sign-up' className='btn-su'>Sing Up</a>
+                        <Tippy content="Profile" delay={200} duration={500} theme='material' placement='top'>
                           <a href='/'>
                             <IconButton aria-label="fingerprint" color="primary">
                               <Fingerprint/>
@@ -86,4 +86,4 @@ const Header = () => {
           </>
     );
 }
-export default Header;
+export default DashboardHeader;

@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'arial';
+    src: url('../../fonts/Ariel\ Script.ttf') format('true type');
+}
+.forgetpsw *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+.forgetpsw-container {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#0f0c29,#302b63,#24243e);
+    direction: ltr;
+    padding: 150px 0;
+}
+.forgetpsw .form {
+    width: 360px;
+    height: 445px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba( 0, 0, 0, 0.40 );
+    box-shadow: 0 8px 32px 0 rgba(13, 14, 26, 0.37);
+    backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(173, 173, 173, 0.18);
+}
+.forgetpsw .top {
+    margin: 10px auto 15px;
+}
+.forgetpsw .top .logo_name {
+    text-align: center;
+    color: white;
+    margin-bottom: 11px;
+}
+.forgetpsw .top .pageName {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin: 0px 0px 8px;
+}
+.forgetpsw .top .img {
+    color: #0364F1;
+    font-size: 70px;
+    text-align: center;
+    margin-top: -25px;
+}
+.forgetpsw .top .sing_div {
+    margin: 0 auto;
+    text-align: center;
+}
+.forgetpsw .top .sing_div .between {
+    color: white;
+}
+.forgetpsw .top .link-text {
+    color: white;
+    display: inline;
+    margin: 0;
+    font-size: 15px;
+}
+.forgetpsw .top .link-primary {
+    color: #3b87fb;
+    display: inline;
+    margin: 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+.forgetpsw .top .link-primary:hover {
+    color: #2278fb;
+    transition: all 0.1s ease-in-out;
+}
+.forgetpsw .form .email_div {
+    margin: 15px auto 0px;
+    display: block;
+    position: relative;
+}
+.forgetpsw .form .email_div input {
+    padding: 8px 20px 8px 35px;
+    width: 210px;
+    color: white;
+    background: rgba( 0, 0, 0, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 7px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.forgetpsw .form .email_div input::placeholder {
+    color: white;
+}
+.forgetpsw .form .email_div input:focus {
+    outline: 1px solid #0364F1;
+}
+.forgetpsw .form .email_div label {
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+    color: white;
+    font-size: 15px;
+}
+.forgetpsw .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    font-size: 19px;
+    padding: 5px;
+    position: absolute;
+    box-sizing:border-box;
+    top: 43%;
+    left:5px;
+}
+.forgetpsw .form .submit {
+    background-color: #0364F1;
+    border: none;
+    color: white;
+    margin: 30px auto 12px;
+    padding: 10px 0;
+    width: 210px;
+    height: 35px;
+    border-radius: 7px;
+}
+.forgetpsw .form .submit:hover {
+    background-color: #02398b;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+.forgetpsw .form .error {
+    color: #d40229;
+    font-size: 14px;
+    font-weight: 2px;
+    margin: 5px 0px 0px 75px;
+}

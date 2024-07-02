@@ -1,0 +1,266 @@
+font-face {
+    font-family: 'arial';
+    src: url('../../fonts/Ariel\ Script.ttf') format('true type');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+.dashboard-container {
+    width: 100%;
+    min-height: 100vh !important;
+    background: rgb(23,23,26);
+    display: flex;
+}
+.dashboard {
+    position: relative;
+}
+/* sidebar */
+.dashboard .icon_bar {
+    color: rgb(255, 255, 255) !important;
+    font-size: 25px;
+    margin-top: 15px;
+    cursor: pointer;
+}   
+.dashboard .icon_close {
+    color: rgb(255, 255, 255) !important;
+    font-size: 25px;
+    margin-bottom: 8px;
+    /* margin-left: -15px; */
+    cursor: pointer;
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    z-index: 99;
+}
+.dashboard .sidebar {
+    z-index: 99;
+    position: absolute;
+    background: #212529;
+    width: 65px;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    overflow-y: auto;
+}
+.dashboard .sidebar-open {
+    z-index: 99;
+    position: absolute;
+    /* padding: 15px 25px; */
+    background: #212529;
+    width: 320px;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    overflow-y: auto;
+}
+.dashboard #sidebar::-webkit-scrollbar {
+    width: 6px !important;
+}
+.dashboard #sidebar::-webkit-scrollbar-track {
+    background: rgb(30, 31, 42) !important;
+  }
+.dashboard #sidebar::-webkit-scrollbar-thumb {
+    background: #2c3261 !important;
+    border-radius: 25px !important;
+}
+.dashboard #sidebar::-webkit-scrollbar-thumb:hover {
+    background: #0364F1 !important;
+    transition: all 0.1s ease-in-out;
+}
+.dashboard .userInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    background: #0364F1;
+    padding: 35px 25px;
+    border-radius: 0 0 45px 0;
+    position: relative;
+}
+.dashboard .hideBarImage {
+    padding: 0 10px;
+    margin: 20px 0 25px;
+}
+.dashboard .hideBarImage img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50% !important;
+}
+.dashboard .top {
+    /* position: absolute;
+    top: 7px;
+    left: 5px;
+    z-index: 99; */
+}
+.dashboard .userInfo .userimage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50% !important;
+}
+.dashboard .userInfo .username {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    margin-left: 12px;
+}
+.dashboard .userInfo .copyUsername {
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    margin-left: 8px;
+    cursor: pointer;
+}
+.dashboard .userInfo .copyUsername:hover {
+    /* color: #1e74f6; */
+    color: #c4c4c4;
+    transition: all 0.1s ease-in-out;
+}
+.dashboard .center-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard .minibuttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    background: #484d52;
+    padding: 1px 5px 4px 5px;
+    border-radius: 25px;
+    font-size: 19px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 35px;
+    margin-top: -55px;
+    z-index: 99;
+}
+.dashboard .minibuttons a {
+    padding: 0 !important;
+}
+.dashboard .minibuttons svg {
+    padding: 0;
+    cursor: pointer;
+}
+.dashboard .minibuttons a {
+    color: rgb(255, 255, 255);
+}
+.dashboard .minibuttons svg:hover {
+    color: #4a8ff7;
+    transition: all 0.1s ease-in-out;
+}
+.dashboard .bottom {
+    width: 100%;
+    /* padding: 0 15px 0; */
+}
+.dashboard ul {
+    padding: 0 0 0 0px;
+    width: 100%;
+    margin: 0;
+}
+.dashboard ul .liSideMenuShow {
+    margin-bottom: 18px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    list-style: none;
+    padding: 0 13px;
+}
+.dashboard ul li a {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+.dashboard ul .liSideMenuShow a:hover {
+    background: #0364F1;
+    transition: all 0.2s ease-in-out;
+}
+.dashboard ul .active a {
+    background: #0364F1;
+}
+.dashboard ul li svg{
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    margin-bottom: 4px;
+}
+.dashboard ul li span {
+    margin-left: 8px;
+    color: rgb(255, 255, 255);
+}
+.dashboard .userInfoHide {
+    display: none;
+}
+.dashboard .miniButtonsHide {
+    display: none;
+}
+.dashboard .linktxtHide {
+    display: none;
+}
+.dashboard .liSideMenuHide:first-child {
+    margin-top: 35px;
+}
+.dashboard .liSideMenuHide {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard .liSideMenuHide a {
+    border-radius: 7px;
+    border-radius: 50%;
+    margin: 0px 13px 18px;
+}
+.dashboard .liSideMenuHide a:hover {
+    background: #0364F1;
+    transition: all 0.2s ease-in-out;
+}
+.dashboard .minibuttonsForCloseMenu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 25px;
+    font-size: 19px;
+    color: rgb(255, 255, 255);
+}
+.dashboard .minibuttonsForCloseMenu a {
+    padding: 0 !important;
+    margin-bottom: 8px;
+}
+.dashboard .minibuttonsForCloseMenu svg {
+    padding: 0;
+    cursor: pointer;
+}
+.dashboard .minibuttonsForCloseMenu a {
+    color: rgb(255, 255, 255);
+}
+.dashboard .minibuttonsForCloseMenu svg:hover {
+    color: #4a8ff7;
+    font-size: 21px;
+    transition: all 0.1s ease-in-out;
+}
+.dashboard .tippy_bg {
+    background: #fff !important;
+}
+
+/* pages */
+.dashboard .pages {
+    margin-left: 80px;
+}
+.dashboard .pages-openMenu {
+    margin-left: 335px;
+}
