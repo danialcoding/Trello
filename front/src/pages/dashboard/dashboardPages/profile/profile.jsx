@@ -6,7 +6,7 @@ import { MdEditSquare } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { BiShow,BiHide } from "react-icons/bi";
 
-
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -33,7 +33,7 @@ function Profile() {
     const [errorMessages, setErrorMessages] = useState({});
 
     
-    const [passwordShown, setPasswordShown] = useState(false);
+    const [passwordShown, setPasswordShown] = useState(true);
     
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
@@ -41,80 +41,53 @@ function Profile() {
 
 
     useEffect(()=>{
-        fetchUserData();
+        // fetchUserData();
+        handleLoadDashboard();
     },[]);
 
-    // const fetchTeamsData = async () => {
-    //     const resault = await fetch('http://localhost:8080/teams/top10');
-    //     const jsonResault = await resault.json();
+    const handleLoadDashboard = async () => {
+        const token = localStorage.getItem('token');
+        const username = localStorage.getItem('username');
 
-    //     setTop10Teams(jsonResault);
-    // }
-
-
-
-    
-    //backend check and edit
-    const fetchUserData = async () => {
-        const response = await fetch(`${URL}/api/users/check/username?user_name=${username}`, {
+        const response = await fetch(`http://localhost:8080/users/${username}`, {
             method: 'GET',
-            headers: { "Content-Type": "application/json" },
-        });
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+          });
     
-        const result = await response.json();
-        
-        setUsername(result.username);
-        setPassword(result.password);
-        setEmail(result.email);
-        registeryDate(result.registeryDate);
+          if (response.ok) {
+            const result = await response.json();
+
+            setUsername(result.Username);
+            setEmail(result.Email);
+            setRegisteryDate(result.CreatedAt);
+          }
     }
 
-    const editUsername = async () => {
+    const handleSaveEditUser = async () => {
+        const token = localStorage.getItem('token');
+        const username = localStorage.getItem('username');
+
         const data = {
-            "id": 0,
-            "user_name": username,
-          };
-      
-        const response = await fetch(`${URL}/api/users/`, {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
+            email: email,
+            password: password
+        }
+
+        const response = await fetch(`http://localhost:8080/users/${username}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
             body: JSON.stringify(data)
-        });
+          });
     
-        return await response.json();
+          if (response.ok) {
+            const result = await response.json();
+          }
     }
-
-    const editPassword = async () => {
-        const data = {
-            "id": 0,
-            "user_name": password,
-          };
-      
-        const response = await fetch(`${URL}/api/users/`, {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-    
-        return await response.json();
-    }
-
-    const editEmail = async () => {
-        const data = {
-            "id": 0,
-            "user_name": email,
-          };
-      
-        const response = await fetch(`${URL}/api/users/`, {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-    
-        return await response.json();
-    }
-
-
 
 
     //backend check
@@ -164,24 +137,38 @@ function Profile() {
     }
     
 
-    //   const handleSubmit = (event) => {
-    //     // event.preventDefault();
-
-    // //     else if(date === '') {
-    // //       setErrorMessages({name: "date", message: errors.date});
-    // //    }
-    
-        
-    //   };
-    
     const renderErrorMessage = (name) =>
     name === errorMessages.name && (
         <div className="error">{errorMessages.message}</div>
     );
 
-    //fill
-    const removeAccHandler = () => {
-        ////////////
+
+
+    const navigate = useNavigate();
+
+    const loginMode = () => {
+        return (
+            navigate('/sign-in', { replace: true })
+        )
+    }
+    
+    const removeAccHandler = async () => {
+        const token = localStorage.getItem('token');
+        const username = localStorage.getItem('username');
+
+        const response = await fetch(`http://localhost:8080/users/${username}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+          });
+    
+          if (response.ok) {
+            const result = await response.json();
+
+            loginMode();
+          }
     }
 
 
@@ -288,7 +275,7 @@ function Profile() {
                             </button>
                             )}
                             <button onClick={usernameEditMode ? (e)=> {onEditHandler(e,'username')} : ()=> {openEditMode('username')}} aria-label={usernameEditMode ? 'Save' : 'Edit'} title={usernameEditMode ? 'Save' : 'Edit'} className="textfield--header-action">                  
-                                {usernameEditMode ? (<IoIosSave aria-hidden="true" />) : (<MdEditSquare aria-hidden="true" />)}
+                                {usernameEditMode ? (<IoIosSave onClick={handleSaveEditUser} aria-hidden="true" />) : (<MdEditSquare aria-hidden="true" />)}
                             </button>
                         </div>
                         <input readOnly={!usernameEditMode} type={"text"} value={username} onChange={(event) => {setUsername(event.target.value);}}/>
@@ -308,7 +295,7 @@ function Profile() {
                             </button>
                             )}
                             <button onClick={emailEditMode ? (e)=> {onEditHandler(e,'email')} : ()=> {openEditMode('email')}} aria-label={emailEditMode ? 'Save' : 'Edit'} title={emailEditMode ? 'Save' : 'Edit'} className="textfield--header-action">                  
-                                {emailEditMode ? (<IoIosSave aria-hidden="true" />) : (<MdEditSquare aria-hidden="true" />)}
+                                {emailEditMode ? (<IoIosSave onClick={handleSaveEditUser} aria-hidden="true" />) : (<MdEditSquare aria-hidden="true" />)}
                             </button>
                         </div>
                         <input readOnly={!emailEditMode} type={"text"} value={email} onChange={(event) => {setEmail(event.target.value);}}/>
@@ -318,7 +305,7 @@ function Profile() {
 
                     <div className="password_div info-item">
                         <div className="icon">
-                                <MdDashboard />
+                            <MdDashboard />
                         </div>
                         <div className="top">
                         <label>Password</label>
@@ -328,7 +315,7 @@ function Profile() {
                             </button>
                             )}
                             <button onClick={passwordEditMode ? (e)=> {onEditHandler(e,'password')} : ()=> {openEditMode('password')}} aria-label={passwordEditMode ? 'Save' : 'Edit'} title={passwordEditMode ? 'Save' : 'Edit'} className="textfield--header-action">                  
-                                {passwordEditMode ? (<IoIosSave aria-hidden="true" />) : (<MdEditSquare aria-hidden="true" />)}
+                                {passwordEditMode ? (<IoIosSave onClick={handleSaveEditUser} aria-hidden="true" />) : (<MdEditSquare aria-hidden="true" />)}
                             </button>
                         </div>
                         <input readOnly={!passwordEditMode} type={passwordShown ? "text" : "password"} value={password} onChange={(event) => {setPassword(event.target.value);}}/>

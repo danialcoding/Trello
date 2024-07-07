@@ -39,51 +39,33 @@ function SignUp(props) {
         setPasswordShown(!passwordShown);
     };
 
+    const hanleSignUp = async (event) => {
+        event.preventDefault();
 
-    //popup
-    const [isOpenPopUp,setIsOpenPopUp] = useState(false);
+        const data = {
+            Username: username,
+            Email: email,
+            Password: password,
+        };
 
+        const response = await fetch('http://localhost:8080/auth/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+    
 
-    const togglePopUp = () => {
-        setIsOpenPopUp(!isOpenPopUp);
+          const result = await response.json();
+
+          if (!response.ok) {
+            setErrorMessages({name: errors_type.confpass, message: result.message});
+          }
+          else {
+            signInMode();
+          }
     }
-    
-    
-
-    
-
-
-
-    //Backend
-    const[users,setUsers] = useState([]);
-
-    const fetchUsersData = async () => {
-        const resault = await fetch('http://localhost:8080/users');
-        const jsonResault = await resault.json();
-
-        setUsers(jsonResault);
-    }
-    
-    useEffect(()=>{
-        fetchUsersData();
-    },[]);
-
-
-    // const submitHandle = async () => {
-
-    //     const resault = await fetch('http://localhost:8080/users',{
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'aplication/json'
-    //         },
-    //         body: JSON.stringify({test})
-    //     });
-
-    //     const resaultJson = await resault.json();
-    //     setUsers(prev => [...prev,resaultJson]);
-    // }
-
-
 
 
     // error States
@@ -94,7 +76,7 @@ function SignUp(props) {
         email_i: "Invalid email",
         email_e: "Email field must not be empty",
         email_ex: "This email address is already used",
-        uname_c: "Username length should be more than 5",
+        uname_c: "Username length should be more than 3",
         uname_e: "Username field must not be empty",
         uname_ex: "This username is already used",
         pass_e: "Password field must not be empty",
@@ -104,6 +86,7 @@ function SignUp(props) {
         email: "email",
         uname: "uname",
         pass: "pass",
+        confpass: "confpass"
     } 
 
     const isValidEmail = (email) => {
@@ -118,11 +101,6 @@ function SignUp(props) {
             setErrorMessages({name: errors_type.email, message: errors.email_i});
             return false;
         }
-    
-        if(users.find((user) => user.email === email)) {
-            setErrorMessages({name: errors_type.email, message: errors.email_ex});
-            return false;
-        }
         else {
             return true;
         }
@@ -134,18 +112,14 @@ function SignUp(props) {
             return false;
         }
 
-        if(username.length < 5) {
+        if(username.length < 3) {
             setErrorMessages({name: errors_type.uname,message:errors.uname_c});
-            return false;
-        }
-
-        if(users.find((user) => user.username === username)) {
-            setErrorMessages({name: errors_type.uname, message: errors.uname_ex});
             return false;
         }
         else {
             return true;
         }
+
     }
 
     const isValidPassword = (password) => {
@@ -161,9 +135,9 @@ function SignUp(props) {
         if (!password.match(lowerCase)) {
             setErrorMessages({name: errors_type.pass,message:"Password should contains lowercase letters"});
             return false;
-        } else if (!password.match(upperCase)) {
-            setErrorMessages({name: errors_type.pass,message:"Password should contain uppercase letters"});
-            return false;
+        // } else if (!password.match(upperCase)) {
+        //     setErrorMessages({name: errors_type.pass,message:"Password should contain uppercase letters"});
+        //     return false;
         } else if (!password.match(numbers)) {
             setErrorMessages({name: errors_type.pass,message:"Password should contains numbers also"});
             return false;
@@ -175,29 +149,24 @@ function SignUp(props) {
         }
     }
 
-    const isChecked = (agreePrivacyPolicy) => {
-        if(!agreePrivacyPolicy) {
-            document.getElementById('i-agree-l').style.color = "#d40229";
-            document.getElementById('i-agree-s').style.color = "#d40229";
-            return false;
+    const isSamePassword = () => {
+        if(password === confirmPassword) {
+            return true;
         }
         else {
-            document.getElementById('i-agree-l').style.color = "white";
-            document.getElementById('i-agree-s').style.color = "#3b87fb";
-            return true;
+            setErrorMessages({name: errors_type.confpass,message:"Password and confirm password should be same."});
+            return false;
         }
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(isValidPassword(password) & isValidUsername(username) & isValidEmail(email)) {
+        if(isValidPassword(password) & isSamePassword() & isValidUsername(username) & isValidEmail(email)) {
             setErrorMessages({});
+            hanleSignUp(event);
         }
-        if(isChecked(agreePrivacyPolicy)) {
-            setIsSubmitted(true);
-            //change this
-        }
+        
     }
 
     const renderErrorMessage = (name) =>
@@ -246,12 +215,13 @@ function SignUp(props) {
                     <input type={confirmpasswordShown ? "text" : "password"} placeholder="Enter Password" name="conf-psw" onChange={(event) => {setConfirmPassword(event.target.value);}}/>
                     <div className="pass_icon" onClick={toggleConfirmPassword}>{confirmpasswordShown ? <BiShow /> : <BiHide />}</div>
                 </div>
+                {renderErrorMessage(errors_type.confpass)}
 
-                <div className="i-agree">
+                {/* <div className="i-agree">
                     <input type="checkbox" name="i-agree" checked={agreePrivacyPolicy} onChange={() => {setAgreePrivacyPolicy(!agreePrivacyPolicy)}}/>   
                     <label id='i-agree-l' onClick={() => {setAgreePrivacyPolicy(!agreePrivacyPolicy)}}>I agree to</label><span id='i-agree-s' className='link-primary' onClick={togglePopUp}> privacy policy</span>
-                </div>
-                <button className='submit' type="submit">Submit</button>
+                </div> */}
+                <button className='submit' type="submit" onClick={(event)=>{handleSubmit(event)}}>Submit</button>
             </form>
 
 

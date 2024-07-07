@@ -1,29 +1,22 @@
 import Header from "../../components/header/header";
 import Dashboard from "./dashboard";
-//import Footer from "../../components/footer/footer";
-
-//import DashboardHeader from "../../components/dashboardheader/dashboardheader";
-// import UserDashboard from "../userdashboard/userDashboard";
 
 
 //login
 import Login from '../login/login'
 import SignUp from '../signup/signup'
-// import ForgetPsw from '../forgetpsw/forgetpsw'
-
-
-//dashboard
-// import { userDashboardMenu } from '../userdashboard/userdashboardmenu';
 
 
 import React from "react";
-import {createBrowserRouter,RouterProvider,Route,createRoutesFromElements,outlet} from "react-router-dom";
+import {useNavigate,createBrowserRouter,RouterProvider,Route,createRoutesFromElements,outlet} from "react-router-dom";
 import Profile from "./dashboardPages/profile/profile";
 import Boards from "../boards/boards";
 import Cards from "./dashboardPages/cards/cards";
 import BoardPage from "../boardpage/boardpage";
 import Team from "../team/team";
 import CreateBoard from "../createboard/createboard";
+
+import { getToken } from '../../components/auth/getToken';
 
 // const Layout = () => (
 //   <>
@@ -37,6 +30,13 @@ import CreateBoard from "../createboard/createboard";
 //   </>
 // );
 const Layout = ({outlet}) => {
+  const navigate = useNavigate();
+
+    const loginMode = () => {
+        return (
+            navigate('/sign-in', { replace: true })
+        )
+    }
   const path = (window.location.pathname).split("/").filter((str)=> str !== "");
   
   if(path[0] === "sign-in" | path[0] === "sign-up" | path[0] == null) {
@@ -50,17 +50,21 @@ const Layout = ({outlet}) => {
     )
   }
   else {
-    return (
-      <>
-        <Header/>
+    if(getToken) {
+      return (
+        <>
+          <Header/>
   
-        <div className="routes">
-          {outlet}
-        </div>
-  
-        {/* <Footer/> */}
-      </>
-    )
+          <div className="routes">
+            {outlet}
+          </div>
+        </>
+      )
+    }
+    else {
+      loginMode();
+    }
+    
   }
 
   

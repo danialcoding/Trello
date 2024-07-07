@@ -19,10 +19,9 @@ function Login(props) {
         )
     }
 
-    const forgetPswMode = () => {
+    const dashboardMode = () => {
         return (
-            navigate('/forgetpassword', { replace: true })
-
+            navigate('/dashboard', { replace: true })
         )
     }
 
@@ -41,19 +40,19 @@ function Login(props) {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    //Backend
-    const[users,setUsers] = useState([]);
+    // //Backend
+    // const[users,setUsers] = useState([]);
 
-    const fetchUsersData = async () => {
-        const resault = await fetch('http://localhost:8080/users');
-        const jsonResault = await resault.json();
+    // const fetchUsersData = async () => {
+    //     const resault = await fetch('http://localhost:8080/users');
+    //     const jsonResault = await resault.json();
 
-        setUsers(jsonResault);
-    }
+    //     setUsers(jsonResault);
+    // }
     
-    useEffect(()=>{
-        fetchUsersData();
-    },[]);
+    // useEffect(()=>{
+    //     fetchUsersData();
+    // },[]);
 
     // User Login info
     const errors = {
@@ -65,23 +64,52 @@ function Login(props) {
         pass: "pass",
     } 
 
-    const handleSubmit = (event) => {
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+
+    //     const userData = users.find((user) => user.uname === setUsername);
+
+    //     if (userData) {
+    //         if (userData.password !== password) {
+    //             setErrorMessages({name: "pass", message: errors.pass});
+    //         } else {
+    //             setErrorMessages({});
+    //             setIsSubmitted(true);
+    //             //change this
+    //         }
+    //     } else {
+    //         setErrorMessages({ name: "uname", message: errors.uname});
+    //     }
+    // };
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        
+        const data = {
+            username: username,
+            password: password
+        };
 
-        const userData = users.find((user) => user.uname === setUsername);
+        const response = await fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+    
 
-        if (userData) {
-            if (userData.password !== password) {
-                setErrorMessages({name: "pass", message: errors.pass});
-            } else {
-                setErrorMessages({});
-                setIsSubmitted(true);
-                //change this
-            }
-        } else {
-            setErrorMessages({ name: "uname", message: errors.uname});
-        }
-    };
+          const result = await response.json();
+
+          if (!response.ok) {
+            setErrorMessages({name: errors_type.confpass, message: result.message});
+          }
+          else {
+            localStorage.setItem('username',username);
+            localStorage.setItem('token', result.token);
+            dashboardMode();
+          }
+    }
 
     const renderErrorMessage = (name) =>
         name === errorMessages.name && (
@@ -116,11 +144,11 @@ function Login(props) {
                 </div>
                 {renderErrorMessage(errors_type.pass)}
 
-                <div className="stay-login">
+                {/* <div className="stay-login">
                     <input type="checkbox" name="stay_login" checked={stayLogin} onChange={() => {setStayLogin(!stayLogin)}}/>   
                     <label>Keep me signed in</label>
-                </div>
-                <button className='submit' type="submit">Submit</button>
+                </div> */}
+                <button className='submit' type="submit" onClick={handleSubmit}>Submit</button>
                 {/* <p className="forget_psw">Forgot <span onClick={forgetPswMode}>password?</span></p> */}
             </form>
         </div>

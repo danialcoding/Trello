@@ -166,8 +166,8 @@
     background-color: #0364F1;
     border: none;
     color: white;
-    margin: 0 auto 12px;
-    padding: 10px 0;
+    margin: 30px auto 12px;
+    /* padding: 10px 0; */
     width: 210px;
     height: 35px;
     border-radius: 7px;

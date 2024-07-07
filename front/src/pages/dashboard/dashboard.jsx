@@ -25,6 +25,12 @@ function UserDashboard({layout}) {
     const [Layout,setLayout] = useState(layout);
     const [active, setActive] = useState();
 
+    const [username, setUsername] = useState(localStorage.getItem('username'));
+
+    useEffect(() => {
+        setUsername(localStorage.getItem('username'));
+    }, []);
+
 
     //fill func
     const handleLogOut = () => {
@@ -129,7 +135,7 @@ function UserDashboard({layout}) {
                     </div>
                     <div className="userInfo" id="userInfo">
                         <img className='userimage' alt='' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ggK4tBn1OOn82eIyQyQAfFR8j4hQiL60MMLw7X9rmlmgqloCZFqE8O2d_fRquNh-zK0&usqp=CAU'/>
-                        <span className='username' id='username'>test</span>
+                        <span className='username' id='username'>{username}</span>
                         <MdContentCopy className='copyUsername' onClick={()=> {copyUsername()}}/>
                     </div>
                     <div className="center-container" id="center-container">

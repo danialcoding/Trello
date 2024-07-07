@@ -155,3 +155,16 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/node,react
+
+
+back/handlers/chat.go
+back/handlers/message.go
+back/models/contact.go
+back/models/message.go
+back/repository/chat.go
+back/repository/contact.go
+back/repository/message.go
+back/repository/gorm/chat.go
+back/repository/gorm/contact.go
+back/repository/gorm/message.go
+.gitignore
