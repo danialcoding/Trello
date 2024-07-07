@@ -1,0 +1,487 @@
+
+font-face {
+    font-family: 'arial';
+    src: url('../../fonts/Ariel\ Script.ttf') format('true type');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+.edit-task {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    z-index: 1000;
+  }
+  
+.edit-task-container {
+    background: #323940;
+    /* padding: 20px; */
+    border-radius: 8px;
+    max-width: 700px;
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    
+}
+.edit-task .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 27%;
+    border-radius: 8px 8px 0 0;
+    background: white;
+}
+.edit-task .top .top-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.edit-task .top .top-img :hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.edit-task .top .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
+}
+.edit-task .rightside {
+    width: 150px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+    height: 70%;
+    width: 30%;
+    padding-right: 20px;
+}
+.edit-task .rightside .title {
+    font-size: 14px;
+}
+.edit-task .rightside .card {
+    background-color: #3B444C;
+    color: rgb(200, 199, 199);
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    width: 100%;
+}
+.edit-task .rightside .card:hover {
+    background-color: #464d54;
+    cursor: pointer;
+}
+.edit-task .rightside .card .icon {
+
+}
+.edit-task .rightside .card .title {
+
+}
+
+
+.edit-task .leftside {
+    padding: 5px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    height: 70%;
+    width: 65%;
+    overflow-x: auto;
+    overflow-y: scroll;
+    padding-left: 20px;
+}
+.edit-task .leftside::-webkit-scrollbar {
+    width: 8px;
+    cursor: pointer;
+}
+.edit-task .leftside::-webkit-scrollbar-track {
+    background: #00204f;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.edit-task .leftside::-webkit-scrollbar-thumb {
+    background: #0147b1;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.edit-task .leftside::-webkit-scrollbar-thumb:hover {
+    background: #0364F1;
+    transition: all 0.1s ease-in-out;
+}
+
+
+
+
+.edit-task .leftside .inp-div {
+    display: block;
+    margin-bottom: 8px;
+}
+.edit-task .leftside .inp-div .listname {
+    font-size: 15px;
+}
+.edit-task .leftside .inp-div label {
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+    color: white;
+    font-size: 15px;
+}
+.edit-task .leftside .inp-div input::placeholder {
+    color: white;
+}
+.edit-task .leftside .inp-div input:focus {
+    outline: 1px solid #0364F1;
+
+    background: rgba( 0, 0, 0, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 7px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.edit-task .leftside .inp-div input {
+    padding: 5px 8px 5px 8px;
+    width: 210px;
+    color: white;
+    font-size: 16px;
+    background: none;
+    border: none;
+}
+
+
+
+
+
+
+.edit-task .leftside .description {
+    display: block;
+    margin-bottom: 8px;
+    width: 400px;
+}
+.edit-task .leftside .description .header {
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.edit-task .leftside .description .inp::placeholder {
+    color: white;
+}
+.edit-task .leftside .description .inp:focus {
+    outline: 1px solid #0364F1;
+    background-color: rgb(35, 35, 35);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.edit-task .leftside .description .inp {
+    width: 100%;
+    height: 120px;
+    color: white;
+    font-size: 16px;
+    background: none;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid rgb(200, 199, 199);
+}
+.edit-task .leftside .description .inp::-webkit-scrollbar {
+    width: 8px;
+    cursor: pointer;
+}
+.edit-task .leftside .description .inp::-webkit-scrollbar-track {
+    background: #00204f;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.edit-task .leftside .description .inp::-webkit-scrollbar-thumb {
+    background: #0147b1;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.edit-task .leftside .description .inp::-webkit-scrollbar-thumb:hover {
+    background: #0364F1;
+    transition: all 0.1s ease-in-out;
+}
+
+
+
+
+.edit-task .leftside .member-div {
+    display: block;
+    margin-bottom: 8px;
+}
+.edit-task .leftside .member-div .header {
+    margin-bottom: 8px;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.edit-task .leftside .member-div .users {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+.edit-task .leftside .member-div .users .user-box {
+    background-color: #3B444C;
+    color: rgb(200, 199, 199);
+    border-radius: 4px;
+    padding: 0 5px;
+    gap: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.edit-task .leftside .member-div .users .user-box .rm-icon{
+    font-size: 15px;
+}
+.edit-task .leftside .member-div .users .user-box .rm-icon:hover {
+    font-size: 15px;
+    color: red;
+    cursor: pointer;
+}
+.edit-task .leftside .member-div .users .user-box .u-icon{
+    font-size: 15px;
+}
+
+
+
+.edit-task .leftside .watch-div {
+    display: block;
+    margin-bottom: 8px;
+}
+.edit-task .leftside .watch-div .header{
+    margin-bottom: 8px;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.edit-task .leftside .watch-div .notif-btn {
+    background-color: #3B444C;
+    color: rgb(200, 199, 199);
+    border-radius: 4px;
+    gap: 3px;
+    padding: 3px 5px;
+    width: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.edit-task .leftside .watch-div .notif-btn:hover {
+    cursor: pointer;
+}
+
+/* comments */
+.edit-task .leftside .comments {
+    display: block;
+    margin-bottom: 8px;
+}
+.edit-task .leftside .comments .header {
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.edit-task .leftside .comments input::placeholder {
+    color: white;
+    
+}
+.edit-task .leftside .comments input:focus {
+    outline: 1px solid #0364F1;
+    background-color: rgb(35, 35, 35);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.edit-task .leftside .comments input {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    background: none;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    resize: none;
+    border: 1px solid rgb(200, 199, 199);
+}
+.edit-task .leftside .comments .commentsave-btn {
+    background-color: #0364F1;
+    border: none;
+    color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 6px 17px;
+    width: 70px;
+    height: 35px;
+    border-radius: 7px;
+}
+.edit-task .leftside .comments .commentsave-btn:hover {
+    background-color: #02398b;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+/* estimate */
+.edit-task .leftside .estimate-div {
+    display: block;
+    margin-bottom: 8px;
+}
+.edit-task .leftside .estimate-div .header{
+    margin-bottom: 8px;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.edit-task .leftside .estimate-div .estimate-btn {
+    background-color: #3B444C;
+    color: rgb(200, 199, 199);
+    border-radius: 4px;
+    gap: 3px;
+    padding: 3px 5px;
+    width: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.edit-task .leftside .estimate-div .estimate-btn:hover {
+    cursor: pointer;
+}
+.edit-task .leftside .estimate-div .estimate-btn .icon-btn {
+    font-size: 20px;
+}
+
+
+/* due date */
+.edit-task .leftside .duedate-div {
+    display: block;
+    margin-bottom: 8px;
+}
+.edit-task .leftside .duedate-div .header{
+    margin-bottom: 8px;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.edit-task .leftside .duedate-div .estimate-btn {
+    background-color: #3B444C;
+    color: rgb(200, 199, 199);
+    border-radius: 4px;
+    gap: 3px;
+    padding: 3px 5px;
+    width: 85px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.edit-task .leftside .duedate-div .estimate-btn:hover {
+    cursor: pointer;
+}
+.edit-task .leftside .duedate-div .estimate-btn .icon-btn {
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+.edit-task .leftside .submit {
+    background-color: #0364F1;
+    border: none;
+    color: white;
+    margin: 50px auto 12px;
+    padding: 0px 0;
+    width: 210px;
+    height: 35px;
+    border-radius: 7px;
+}
+.edit-task .leftside .submit:hover {
+    background-color: #02398b;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.edit-task .leftside .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+.edit-task .check-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    font-size: 13px;
+    padding: 5px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 33%;
+    right: 38px;
+    color: #1b51a1;
+    z-index: 99;
+}

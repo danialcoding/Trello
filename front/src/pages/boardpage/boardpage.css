@@ -1,0 +1,135 @@
+font-face {
+    font-family: 'arial';
+    src: url('../../fonts/Ariel\ Script.ttf') format('true type');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+.boardpage-container {
+    width: 100%;
+    min-height: 100vh !important;
+    background: rgb(23,23,26);
+    position: relative;
+}
+.boardpage {
+    padding: 15px;
+    color: rgb(200, 199, 199);
+    position: relative;
+}
+.boardpage .top-b {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(200, 199, 199);
+}
+.boardpage .leave-btn {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 12px 30px;
+}
+.boardpage .leave-btn .rm-btn{
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px !important;
+    background: #BF1A2F;
+    box-shadow: 0 3px 8px 0 #BF1A2F;
+    border-radius: 5px;
+    height: 38px;
+    width: 110px;
+    text-align: center;
+    cursor: pointer;
+}
+.boardpage .leave-btn .rm-btn:hover{
+    background: #77101d;
+    box-shadow: 0 3px 8px 0 #74101d;
+}
+.boardpage .top-b .board-name {
+    display: inline;
+    margin-right: 50px;
+}
+.boardpage .top-b .team-btn {
+    display: inline;
+}
+.boardpage .top-b .team-btn:hover {
+    cursor: pointer;
+    color: rgb(172, 171, 171);
+}
+.boardpage .top-b .team-btn .team-icon {
+    margin-right: 8px;
+}
+.boardpage .details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: start;
+    margin-top: 35px;
+    gap: 50px;
+}
+.boardpage .details .parts {
+    background: #e6e6e6;
+    color: white;
+    width: 400px;
+    height: auto;
+    padding: 8px;
+    border-radius: 8px;
+    flex-grow: 1;
+
+
+    background: rgba(55, 55, 55, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(13, 14, 26, 0.37);
+    backdrop-filter: blur( 5px );
+    border: 1px solid rgba(173, 173, 173, 0.18);
+}
+.boardpage .details .parts .title {
+    font-size: 18px;
+}
+
+.boardpage .details .parts .cards-box {
+    background-color: none;
+}
+.boardpage .details .parts .cards-box .empty {
+    margin-top: 5px;
+}
+.boardpage .details .parts .cards-box .card {
+    border-radius: 5px;
+    padding: 5px 12px;
+    margin-bottom: 4px;
+    color: white;
+    background: rgba(160, 160, 160, 0.4);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.boardpage .details .parts .cards-box .card:hover {
+    /* background-color: rgb(148, 148, 148); */
+    cursor: pointer;
+    border: 1px solid #0364F1;
+}
+.boardpage .details .parts .cards-box .card .edit-btn {
+    cursor: pointer;
+    padding: 6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.boardpage .details .parts .cards-box .card .edit-btn:hover {
+    background-color: rgb(148, 148, 148);
+}
+.boardpage .details .parts .addcard-btn {
+    margin: 0 -8px -8px -8px;
+    padding: 6px;
+    border-radius: 0 0 4px 4px;
+}
+.boardpage .details .parts .addcard-btn:hover {
+    background-color: rgb(148, 148, 148);
+    cursor: pointer;
+}

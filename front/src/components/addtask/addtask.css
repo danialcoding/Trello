@@ -1,0 +1,106 @@
+
+font-face {
+    font-family: 'arial';
+    src: url('../../fonts/Ariel\ Script.ttf') format('true type');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+/* .boardpage-container {
+    width: 100%;
+    min-height: 100vh !important;
+    background: rgb(23,23,26);
+}
+.boardpage {
+    padding: 15px;
+    color: rgb(200, 199, 199);
+} */
+
+
+.add-task {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+.add-task-container {
+    background: rgb(68, 66, 66);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 250px;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    height: 160px;
+}
+  
+.add-task .close-button {
+    background: #BF1A2F;
+    color: white;
+    border: none;
+    padding: 0px 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.add-task .close-button:hover {
+    cursor: pointer;
+    background: #911324;
+}
+.add-task .title {
+    font-size: 16px;
+}
+.add-task .tn-inp {
+    background-color: rgba(101, 101, 101, 0.4);
+    padding: 2px 7px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+.add-task .tn-inp:focus {
+    outline: 1px solid #0364F1;
+}
+  
+.add-task .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+  
+.add-task .button-group button {
+    padding: 4px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.add-task .button-group button:first-of-type {
+    background: #0364F1;
+    color: white;
+}
+
+.add-task .button-group button:first-of-type:hover {
+    background: #0054d2;
+
+}
+  
+.add-task .button-group button:last-of-type {
+    background: rgb(113, 113, 113);
+    color: white;
+}
+.add-task .button-group button:last-of-type:hover {
+    background: rgb(97, 97, 97);
+    color: white;
+}
+  

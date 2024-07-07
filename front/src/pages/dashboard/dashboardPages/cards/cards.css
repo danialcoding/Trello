@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'arial';
+    src: url('../../../../fonts/Ariel\ Script.ttf') format('true type');
+}
+.cards *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+.cards-container {
+    width: 100%;
+    height: 100%;
+    direction: ltr;
+    margin-left: 15px;
+}
+.cards .title {
+    margin-top: 20px;
+    background-color: none;
+    color: rgb(200, 199, 199);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cards .tablestyle {
+    width: 100%;
+    margin-top: 30px;
+}
+.cards .thstyle {
+    color: rgb(200, 199, 199);
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding: 13px 30px;
+    height: 50px;
+}
+.cards .tdstyle {
+    color: rgb(200, 199, 199);
+    text-align: center;
+    padding: 13px 30px;
+    textAlign: left;
+} 

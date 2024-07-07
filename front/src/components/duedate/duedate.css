@@ -1,0 +1,94 @@
+.date-picker {
+    background: #323940;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    position: absolute;
+    z-index: 9999;
+}
+
+.date-picker .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.date-picker .d-btn {
+    border-radius: 50%;
+    background: none;
+    color: white;
+    margin: 5px;
+    padding: 9px 6px;
+}
+.date-picker .day-btn {
+    border-radius: 50%;
+    padding: 4px 7px;
+    background: none;
+    color: white;
+    margin: 5px;
+}
+
+.date-picker .year-picker,.date-picker .month-picker,.date-picker .day-picker {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.date-picker .year-picker button,.date-picker .month-picker button,.date-picker .day-picker button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+
+.date-picker .year-picker button:hover,.date-picker .month-picker button:hover,.date-picker .day-picker button:hover {
+    background: #0364F1;
+}
+
+.date-picker .year-picker button.selected-btn,.date-picker .month-picker button.selected-btn,.date-picker .day-picker button.selected-btn {
+    background: #0364F1;
+  }
+
+.date-picker .footer {
+padding: 10px;
+}
+
+.date-picker .footer .btn-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.date-picker .footer .submit {
+    background-color: #0364F1;
+    border: none;
+    color: white;
+    margin: 8px auto 8px;
+    padding: 5px 0;
+    width: 100px;
+    height: 35px;
+    border-radius: 7px;
+}
+.date-picker .footer .submit:hover {
+    background-color: #02398b;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.date-picker .footer .cancel {
+    background-color: #e30c0c;
+    border: none;
+    color: white;
+    margin: 8px auto 8px;
+    padding: 5px 0;
+    width: 100px;
+    height: 35px;
+    border-radius: 7px;
+}
+.date-picker .footer .cancel:hover {
+    background-color: #8f0909;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}

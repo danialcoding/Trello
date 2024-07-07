@@ -1,0 +1,93 @@
+font-face {
+    font-family: 'arial';
+    src: url('../../fonts/Ariel\ Script.ttf') format('true type');
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'arial';
+}
+.boards-container {
+    width: 100%;
+    min-height: 100vh !important;
+    background: rgb(23,23,26);
+    display: flex;
+    margin: 0 auto;
+    display: flex;
+}
+.boards .leftside {
+    flex: 13%;
+    margin: 10px 20px;
+    padding: 5px 8px;
+    border-right: 1px solid #062a61;
+}
+.boards .leftside-item {
+    color: rgb(200, 199, 199);
+    font-size: 16px;
+    font-weight: 300;
+    width: 245px;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    margin: 0 5px 8px;
+    padding: 8px 8px 8px 40px !important;
+    border-radius: 5px;
+    position: relative;
+}
+.boards .leftside-item:hover {
+    background: #0a3371 !important;
+}
+
+.boards .item-icon {
+    z-index: 99;
+    color: rgb(200, 199, 199);
+    position: absolute;
+    top: 85px;
+    left: 50px;
+}
+.boards .rightside {
+    flex: 87%;
+    padding: 15px 15px;
+    color: rgb(200, 199, 199);
+}
+.boards .rightside .boards-div {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: normal;
+    gap: 30px;
+}
+.boards .rightside .boards-div .board-card {
+    width: 240px;
+    height: 120px;
+    background-image: linear-gradient(325deg, #c31432, #240b36);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+    0 15px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 9px;
+    position: relative;
+}
+.boards .rightside .boards-div .board-card:hover {
+    transition: all 0.8s ease-in-out;
+    background-image: linear-gradient(325deg, #840c20, #190726);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+.boards .rightside .boards-div .board-card .board-title {
+    color: rgb(200, 199, 199);
+    font-size: 16px;
+}
+.boards .rightside .boards-div .board-card .board-settings-icon {
+    color: rgb(200, 199, 199);
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+}
+.boards .rightside .boards-div .board-card .board-settings-icon:hover {
+    cursor: pointer;
+}
+/* .boards .rightside .boards-div .menu {
+    background-color: rgb(23,23,26) !important;
+} */

@@ -4,6 +4,7 @@ import { FaTasks } from "react-icons/fa";
 
 
 import Profile from './dashboardPages/profile/profile';
+import Cards from './dashboardPages/cards/cards';
 
 export const DashboardMenu = [
     {
@@ -16,6 +17,6 @@ export const DashboardMenu = [
         title: 'Cards',
         path: '/dashboard/cards',
         icon: <FaTasks/>,
-        page: <Profile/>,
+        page: <Cards/>,
     },
 ];

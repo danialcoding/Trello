@@ -223,15 +223,15 @@
     font-size: 14px;
     margin-left: 5px;
 }
-
-.popup-content {
+/* 
+.signup .popup-content {
     margin: auto;
     width: 380px;
     padding: 25px 25px;
     color: black;
     text-align: center;
     background: linear-gradient(#0f0c29,#302b63,#24243e);
-    /* background: #063852; */
+    background: #063852;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
@@ -240,32 +240,32 @@
     height:350px;
     overflow:auto;
 }
-.popup-content::-webkit-scrollbar {
+.signup .popup-content::-webkit-scrollbar {
     width: 8px;
 }
-.popup-content::-webkit-scrollbar-track {
+.signup .popup-content::-webkit-scrollbar-track {
     background: #011A27;
   }
-.popup-content::-webkit-scrollbar-thumb {
+.signup .popup-content::-webkit-scrollbar-thumb {
     background: #063852;
     border-radius: 25px;
 }
-.popup-content::-webkit-scrollbar-thumb:hover {
+.signup .popup-content::-webkit-scrollbar-thumb:hover {
     background: #0364F1;
     transition: all 0.1s ease-in-out;
 }
 
-.popup-content h4 {
+.signup .popup-content h4 {
     margin-bottom: 15px;
 }
-.popup-content p {
+.signup .popup-content p {
     line-height: 25px;
 }
 
 .popup-arrow {
     color: rgb(255, 255, 255);
 }
-[role='tooltip'].popup-content {
+.signup [role='tooltip'].popup-content {
     width: 200px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
@@ -274,4 +274,4 @@
 }
 [data-popup='tooltip'].popup-overlay {
     background: transparent;
-}
+} */

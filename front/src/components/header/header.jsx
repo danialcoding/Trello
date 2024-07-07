@@ -6,7 +6,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import * as React from "react";
 
-import { message } from 'react-message-popup';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -16,6 +15,8 @@ import Fingerprint from '@mui/icons-material/Fingerprint';
 import { FiMenu } from 'react-icons/fi';
 
 import { MainMenuItems } from './mainmenuitems';
+import { FaPlus } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -24,66 +25,81 @@ import './header.css'
 
 
 const Header = () => {
+  
+  const navigate = useNavigate();
 
-    return (
-            <>
-            {['lg'].map((expand) => (
-              <Navbar key={expand} bg="light" expand={expand} className="main-menu">
-                <Container className='menu-container' fluid>
-                  <h4 className='navbrand' href="#">Trello</h4>
-                  <Navbar.Toggle children={<div className='toggle-btn'><FiMenu/></div>} className='nav-toggle' aria-controls={`offcanvasNavbar-expand-${expand}`} />
-                  <Navbar.Offcanvas className='nav-box bg-dark text-white' id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="end">
-                    <Offcanvas.Header closeButton>
-                      <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Traiding Team</Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                      <Nav className="nav-div justify-content-start flex-grow-1 pe-3 align-center">
+  const handleCreateBoard = () => {
+      return (
+          navigate(`/board/createboard`, { replace: true })
+      )
+}
 
-                        {
-                          MainMenuItems.map((item,index) => {
-                            if(item.haveChilds) {
-                              return(
-                                <NavDropdown key={index} title={item.title} id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                                {
-                                  item.childs.map((child,cindex) => {
-                                    return(
-                                      <NavDropdown.Item key={cindex} href={child.path}>{child.title}</NavDropdown.Item>
-                                    ) 
-                                  })
-                                }
-                              </NavDropdown>
-                              )
-                            }
-                            else {
-                              return (
-                                <Nav.Link key={index} className='link' href={item.path}>{item.title}</Nav.Link>
-                              );
-                            }
-                          })
-                        }
-                      </Nav>
+  return (
+          <>
+          {['lg'].map((expand) => (
+            <Navbar key={expand} bg="light" expand={expand} className="main-menu">
+              <Container className='menu-container' fluid>
+                <h4 className='navbrand' href="#">Trello</h4>
+                <Navbar.Toggle children={<div className='toggle-btn'><FiMenu/></div>} className='nav-toggle' aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                <Navbar.Offcanvas className='nav-box bg-dark text-white' id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="end">
+                  <Offcanvas.Header closeButton>
+                    <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Traiding Team</Offcanvas.Title>
+                  </Offcanvas.Header>
+                  <Offcanvas.Body>
+                    <Nav className="nav-div justify-content-start flex-grow-1 pe-3 align-center">
 
-                      <div className='btn-div'>
-                        {/* <a href='/sign-in' className='btn-si'>Sing In</a>
-                        <a href='/sign-up' className='btn-su'>Sing Up</a> */}
-                        <Tippy content="Profile" delay={200} duration={500} theme='material' placement='bottom'>
-                          <a href='/'>
-                            <IconButton aria-label="fingerprint" color="primary">
-                              <Fingerprint/>
-                            </IconButton>
-                          </a>
-                          
-                        </Tippy>
-                        
-                        
+                      {
+                        MainMenuItems.map((item,index) => {
+                          if(item.haveChilds) {
+                            return(
+                              <NavDropdown key={index} title={item.title} id={`offcanvasNavbarDropdown-expand-${expand}`}>
+                              {
+                                item.childs.map((child,cindex) => {
+                                  return(
+                                    <NavDropdown.Item key={cindex} href={child.path}>{child.title}</NavDropdown.Item>
+                                  ) 
+                                })
+                              }
+                            </NavDropdown>
+                            )
+                          }
+                          else {
+                            return (
+                              <Nav.Link key={index} className='link' href={item.path}>{item.title}</Nav.Link>
+                            );
+                          }
+                        })
+                      }
+                      
+                      {/* fill onclick */}
+                      <div className='btn-create-div' onClick={() => {handleCreateBoard()}}>
+                        <a className='btn-create'><FaPlus className='create-icon'/>Create</a>
                       </div>
+                      
+                    </Nav>
+
+
                     
-                    </Offcanvas.Body>
-                  </Navbar.Offcanvas>
-                </Container>
-              </Navbar>
-            ))}
-          </>
+
+                    <div className='btn-div'>
+                      <Tippy content="Profile" delay={200} duration={500} theme='material' placement='bottom'>
+                        <a href='/dashboard/profile'>
+                          <IconButton aria-label="fingerprint" color="primary">
+                            <Fingerprint/>
+                          </IconButton>
+                        </a>
+                        
+                      </Tippy>
+                      
+                      
+                    </div>
+                  
+                  </Offcanvas.Body>
+                </Navbar.Offcanvas>
+              </Container>
+            </Navbar>
+          ))}
+        </>
     );
 }
 export default Header;

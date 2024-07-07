@@ -89,25 +89,36 @@
 .navbar-nav .nav-link.active {
     color: white;
 }
-/* .btn-close {
-    background: transparent url('../../pictures/close-btn.svg')  center/1em auto no-repeat;
-} */
-.btn-si {
+
+.main-menu .btn-create {
     color: white;
     text-decoration: none;
     padding: 7px 15px !important;
-    background: #0364F1;
+    /* background: #0364F1; */
+    border: 2px solid #0054d2;
     border-radius: 5px;
     height: 38px;
     width: 125px;
     text-align: center;
     cursor: pointer;
 }
-.btn-si:hover {
+.main-menu .btn-create:hover {
     background: #0054d2;
     color: white;
 }
-.btn-su {
+
+.main-menu .btn-create-div {
+    padding: 8px 15px !important;
+    margin-bottom: 8px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.main-menu .btn-create-div .create-icon {
+    margin-bottom: 5px;
+    margin-right: 8px;
+}
+/* .btn-su {
     align-items: center;
     color: white;
     text-decoration: none;
@@ -123,13 +134,13 @@
 .btn-su:hover {
     border: 1px solid #0054d2;
     color: white;
-}
-.btn-div {
+} */
+/* .btn-div {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 12px 0px;
-}
+} */
 
 /* .main-menu {
     

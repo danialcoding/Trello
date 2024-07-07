@@ -1,0 +1,112 @@
+.subtasks-container {
+    border-radius: 8px;
+    color: white;
+    width: 400px;
+}
+  
+.subtasks-container .header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.subtasks-container .header .icon {
+    font-size: 18px !important;
+    padding: 2px;
+}
+  
+.subtasks-container .header h6 {
+    margin: 0;
+    text-align: center;
+}
+  
+.subtasks-container .delete-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+  
+.subtasks-container .progress-bar {
+    width: 100%;
+    background-color: #444;
+    height: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+  
+.subtasks-container .progress {
+    height: 100%;
+    background-color: #0364F1;
+    border-radius: 5px;
+}
+  
+.subtasks-container .task-list {
+    list-style: none;
+    padding: 0;
+}
+  
+.subtasks-container .task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+  
+.subtasks-container .task-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+  
+.subtasks-container .task-item .completed {
+    text-decoration: line-through;
+}
+  
+.subtasks-container .assignee {
+    margin-left: 10px;
+    color: #ccc;
+}
+  
+.subtasks-container .delete-task-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+  
+.subtasks-container .add-subtask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+  
+.subtasks-container .add-subtask input {
+    width: calc(100% - 60px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    background: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.subtasks-container .add-subtask input::placeholder {
+    color: white;
+}
+.subtasks-container .add-subtask input:focus {
+    outline: 1px solid #0364F1;
+    background-color: rgb(35, 35, 35);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+}
+  
+.subtasks-container .add-subtask button {
+    background-color: #0364F1;
+    border: none;
+    color: white;
+    padding: 6px 11px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  

@@ -73,8 +73,6 @@
 .profile .info-item .top {
     display: flex;
     flex-direction: row;
-
-    
 }
 
 .profile .info-item input {

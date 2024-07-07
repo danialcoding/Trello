@@ -153,8 +153,7 @@ function UserDashboard({layout}) {
                             </li>
                             {
                                 DashboardMenu.map((item,index) => (
-                                    <li onClick={(event) => setActive(item) & setLayout(item.page) & someMethod(item.path) & event.preventDefault()} key={index} className={`${classButton} ${active === item ? 'active' : '' || index === 0 & active === null ? 'active' : "" || item.path === window.location.pathname ? 'active' : ""}`}><a href={item.path}>{item.icon}<span className='linktxt'>{item.title}</span></a></li>
-                                ))
+                                    <li onClick={(event) => setActive(item) & setLayout(item.page) & someMethod(item.path) & event.preventDefault()} key={index} className={`${classButton} ${active === item ? 'active' : '' || index === 0 & active === null ? 'active' : "" || item.path === window.location.pathname ? 'active' : ""}`}><a href={item.path}>{item.icon}<span className='linktxt'>{item.title}</span></a></li>                                ))
                             }
                         </ul>
                     </div>

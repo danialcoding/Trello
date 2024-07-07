@@ -1,0 +1,108 @@
+.story-points {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    padding: 10px;
+    text-align: center;
+    background: #323940;
+    position: absolute;
+    z-index: 9999;
+}
+  
+.story-points .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.story-points .header h5 {
+    margin: 0;
+}
+  
+.story-points .close-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background-color:#BF1A2F;
+    padding: 0px 6px;
+    border-radius: 50%;
+}
+.story-points .close-button:hover {
+    cursor: pointer;
+    background: #911324;
+}
+  
+.story-points input {
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+.story-points .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+  
+.story-points .buttons button {
+    margin: 3px;
+    padding: 2px 9px;
+    background: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+  
+.story-points .buttons button.selected {
+    background-color: #0364F1;
+    color: white;
+}
+  
+.story-points .buttons button:hover {
+    background-color: #0364F1;
+    color: white;
+}
+  
+.story-points .footer {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.story-points .save-button {
+    background-color: #0364F1;
+    border: none;
+    color: white;
+    margin: 8px auto 8px;
+    padding: 5px 0;
+    width: 100px;
+    height: 35px;
+    border-radius: 7px;
+}
+.story-points .save-button:hover {
+    background-color: #02398b;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+  
+.story-points .remove-button {
+    background-color: #e30c0c;
+    border: none;
+    color: white;
+    margin: 8px auto 8px;
+    padding: 5px 0;
+    width: 100px;
+    height: 35px;
+    border-radius: 7px;
+}
+.story-points .remove-button:hover {
+    background-color: #8f0909;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
