@@ -79,11 +79,15 @@ font-face {
     color: rgb(200, 199, 199);
     font-size: 16px;
 }
+.boards .rightside .boards-div .board-card .board-title:hover {
+    cursor: pointer;
+}
 .boards .rightside .boards-div .board-card .board-settings-icon {
     color: rgb(200, 199, 199);
     position: absolute;
     bottom: 7px;
     right: 7px;
+    z-index: 99999;
 }
 .boards .rightside .boards-div .board-card .board-settings-icon:hover {
     cursor: pointer;

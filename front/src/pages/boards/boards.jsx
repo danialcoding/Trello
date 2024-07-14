@@ -36,6 +36,24 @@ const Boards = () => {
     setAnchorEl(null);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    const response = await fetch('http://localhost:8080/workspaces', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        
+      }
+  }
+
 
 
   // //test
@@ -112,8 +130,8 @@ const Boards = () => {
               boardsItem.map((item) => {
                 return(
                   //put on click for board
-                  <div className='board-card' onClick={() => {handleShowCard(item.id)}}  key={item.id}>
-                    <span className='board-title'>item.name</span>
+                  <div className='board-card' key={item.id}>
+                    <span className='board-title' onClick={() => {handleShowCard(item.id)}} >{item.name}</span>
 
                     <span
                     aria-controls={open ? 'basic-menu' : undefined}

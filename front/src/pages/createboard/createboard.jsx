@@ -19,25 +19,36 @@ const CreateBoard = () => {
     const [name,setName] = useState('');
     const [description,setDescription] = useState('');
     const [searchUsers,setSearchUsers] = useState([]);
-    const [teamUsers,setTeamUsers] = useState([
-      { id: 0, username: 'user1' },
-      { id: 1, username: 'user2' },
-    ])
+    const [teamUsers,setTeamUsers] = useState([]);
 
     const [checkVisibility,setCheckVisibility] = useState(false);
 
 
-    const [users, setUsers] = useState([
-      { id: 0, username: 'user1' },
-      { id: 1, username: 'user2' },
-      { id: 2, username: 'user3' },
-      { id: 3, username: 'user4' },
-      { id: 4, username: 'user5' }
-    ]);
+    const [users, setUsers] = useState([]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }
+    const getAllUsers = async () => {
+      const token = localStorage.getItem('token');
+
+      const response = await fetch('http://localhost:8080/users/', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+      });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          setUsers(result);
+        }
+      }
+
+      useEffect(() => {
+        getAllUsers();
+      }, []);
+
+      
 
     const HandleCheckVisibility = (length) => {
       if(length > 0) {
@@ -65,6 +76,31 @@ const CreateBoard = () => {
       setTeamUsers(teamUsers.filter(user => user.username !== username));
     }
 
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      
+    const data = {
+        name: name,
+        description: description,
+
+    };
+
+  const response = await fetch('http://localhost:8080/workspaces/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+
+    const result = await response.json();
+
+    if (response.ok) {
+      
+    }
+    
+  }
 
 
 
@@ -99,7 +135,7 @@ const CreateBoard = () => {
                     <input id="search-inp" type="search" onChange={(event)=>{setSearchUsers(event.target.value); HandleCheckVisibility((event.target.value).length);}} placeholder="Search By Username" name="email" ></input>
                 </div>
 
-                <button className='submit' type="submit">Submit</button>
+                <button className='submit' type="submit" onClick={handleSubmit}>Submit</button>
 
 
                 <div className='users'>

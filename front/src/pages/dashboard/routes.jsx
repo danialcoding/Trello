@@ -40,6 +40,7 @@ const Layout = ({outlet}) => {
   const path = (window.location.pathname).split("/").filter((str)=> str !== "");
   
   if(path[0] === "sign-in" | path[0] === "sign-up" | path[0] == null) {
+    
     return (
       <>
         <div className="routes">

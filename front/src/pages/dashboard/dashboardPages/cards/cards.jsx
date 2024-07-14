@@ -6,6 +6,8 @@ import './cards.css';
 const Cards = () => {
     const [cardsData, setCardsData] = useState([]);
 
+    
+
 
     useEffect(() => {
         const boardData = [

@@ -15,6 +15,7 @@ import 'tippy.js/dist/tippy.css';
 import { useState,useEffect } from 'react';
 
 import { DashboardMenu } from './dashboardmenu';
+import { useNavigate } from 'react-router-dom';
 
 import './dashboard.css';
 
@@ -32,9 +33,17 @@ function UserDashboard({layout}) {
     }, []);
 
 
-    //fill func
+    const navigate = useNavigate();
+
+    const loginMode = () => {
+        return (
+            navigate('/sign-in', { replace: true })
+        )
+    }
+
     const handleLogOut = () => {
-        ////////////
+        localStorage.setItem('token','');
+        loginMode();
     }
 
     useEffect(() => {

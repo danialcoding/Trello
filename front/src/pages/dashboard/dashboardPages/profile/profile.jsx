@@ -146,9 +146,9 @@ function Profile() {
 
     const navigate = useNavigate();
 
-    const loginMode = () => {
+    const signUpMode = () => {
         return (
-            navigate('/sign-in', { replace: true })
+            navigate('/sign-up', { replace: true })
         )
     }
     
@@ -167,10 +167,9 @@ function Profile() {
           if (response.ok) {
             const result = await response.json();
 
-            loginMode();
+            signUpMode();
           }
     }
-
 
 
 
