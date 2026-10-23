@@ -168,3 +168,8 @@ back/repository/gorm/chat.go
 back/repository/gorm/contact.go
 back/repository/gorm/message.go
 .gitignore
+
+# Environment files that hold secrets. .env.example stays tracked.
+.env
+.env.*
+!.env.example
